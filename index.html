@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <title>Angular js List Example</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/libs/angular.min.js"></script>
+   
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="model/usermodel.js"></script>
+    <script src="controller/MainController.js"></script>
+    <script src="controller/View1Controller.js"></script>
+    <script src="controller/View2Controller.js"></script>
+
+    <link href="css/ng-modal.css" rel="stylesheet" />
+    <script src="js/ng-modal.js"></script>
+    <script src="js/dirPagination.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+
+</head>
+
+<body ng-controller="MyCtrl">
+    <div class="container"><div class="jumbotron">AngularJS MVC View's</div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div ng-view></div>
+        </div>
+    </div>
+</body>
+</html>

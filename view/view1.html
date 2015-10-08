@@ -1,0 +1,82 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <a href="#mainview">Go To Home</a>
+            <h3>Athletes List</h3>
+            <br />
+            <table>
+                <tr>
+                    <td>Search:
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="searchdata" placeholder="Search here" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <td class="col-xs-2"><b>Details</b>
+                        </td>
+                        <td class="col-xs-2">
+                            <!--<b>Athlete Name</b>-->
+                            <a ng-click="sort('athlete')" style="cursor: pointer;"><b>Athlete Name</b>
+                            </a>
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='athlete'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </td>
+                        <td class="col-xs-2">
+                            <a ng-click="sort('year')" style="cursor: pointer;"><b>Year</b>
+                            </a>
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='year'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </td>
+                        <td class="col-xs-2">
+                            <a ng-click="sort('sport')" style="cursor: pointer;"><b>Sport</b>
+                            </a>
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='sport'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </td>
+                        <td class="col-xs-2">
+                            <a ng-click="sort('age')" style="cursor: pointer;"><b>Age</b>
+                            </a>
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='age'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </td>
+                    </tr>
+                </thead>
+                <tr dir-paginate="at in athletes | filter:searchdata | orderBy:sortKey:reverse | itemsPerPage:5">
+                    <td>
+                        <a ng-click="ShowDetails(at)" style="cursor: pointer;">Get Details</a>
+                    </td>
+                    <td class="col-xs-2" ng-click="ShowDetails(at)">{{ at.athlete }}
+                    </td>
+                    <td class="col-xs-2" ng-click="ShowDetails(at)">{{ at.year }}
+                    </td>
+                    <td class="col-xs-2" ng-click="ShowDetails(at)">{{ at.sport }}
+                    </td>
+                    <td class="col-xs-2" ng-click="ShowDetails(at)">{{ at.age }}
+                    </td>
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"></dir-pagination-controls>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">         
+                    <h3 class="modal-title">Selected Data</h3>
+                </div>
+                <div class="modal-body">
+                    <div style="margin-left: 10%;">        
+                        <b>{{selecteddata}}</b>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" ng-click="cancel()">OK</button>      
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>     
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+
+
